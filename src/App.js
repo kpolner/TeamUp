@@ -1,4 +1,3 @@
-import Header from './components/Header';
 import About from './components/About';
 import Create from './components/Create';
 import Login from './components/Login';
