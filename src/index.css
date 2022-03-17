@@ -145,9 +145,60 @@ footer {
     filter: brightness(90%);
 }
 
+/*Root div styling */
 :root {
     background-color: #2d312b;
 }
+
+/* about page list styling */
+.tech-list {
+    float:left;
+    margin-left: 15%;
+}
+.tech-list .tech-list-title {
+    margin-left: -3px;
+    color: #7ec850;
+    font-size: 25px;
+    font-weight: 50;
+    margin-bottom: 10px;
+}
+/* general section styling */
+.general {
+    display: flex;
+    height: 100vh;
+    color: #fff;
+    min-height: 100px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+ .max-width {
+    width: 100%;
+    display: flex;
+}
+
+.general .max-width .row {
+    margin-right: 0;
+}
+
+.general .general-content .title {
+    font-size: 60px;
+    font-weight: 700;
+    margin-left: -3px;
+    color: #7ec850;
+}
+
+.general .general-content .subtitle {
+    font-size: 35px;
+    font-weight: 200;
+    margin-left: -3px;
+    color: #7ec850;
+}
+
+.general .general-content .text-3 {
+    font-size: 20px;
+    margin: 50px 0;
+}
+
 /* home section styling */
 .home {
     display: flex;

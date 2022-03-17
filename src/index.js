@@ -11,7 +11,7 @@ import {
 import Login from './components/Login';
 import SignUp from './components/Sign Up';
 import Create from './components/Create';
-import View from './components/View';
+import Discover from './components/Discover';
 import Update from './components/Update';
 import About from './components/About';
 const rootElement = document.getElementById("root");
@@ -22,7 +22,7 @@ render(
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="create" element={<Create />} />
-      <Route path="view" element={<View />} />
+      <Route path="discover" element={<Discover />} />
       <Route path="update" element={<Update />} />
       <Route path="about" element={<About />} />
     </Routes>

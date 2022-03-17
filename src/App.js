@@ -1,10 +1,3 @@
-import About from './components/About';
-import Create from './components/Create';
-import Login from './components/Login';
-import SignUp from './components/Sign Up';
-import Update from './components/Update';
-import View from './components/View';
-import {BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import React from 'react';
 function App() {
   return (
