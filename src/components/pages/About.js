@@ -1,7 +1,7 @@
 //About page
 export default function About() {
     return (
-        <section class="general" id="general">
+        <section class="general" id="about">
         <div class="max-width">
             <div class="general-content">
                 <div class="title">About</div>

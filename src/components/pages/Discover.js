@@ -5,11 +5,13 @@
 //search by each variable?
 export default function Discover() {
     return (
-        <section class="home" id="home">
+        <section class="general" id="discover">
         <div class="max-width">
-            <div class="home-content">
-                <div class="text-1">Welcome to</div>
-                <div class="text-2">The<span> Discover Page</span></div>
+            <div class="general-content">
+            <div class="title">Discover</div>
+            <button type="button" class="event-button" id="create-button">Create Event</button><span>
+            <button type="button" class="event-button" id="update-button">Update Event</button>
+            </span>
                 <div class="text-3">To do:
                 <ol>
                     <li>buttons to create your own event and update it</li>

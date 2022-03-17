@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import App from './App';
+import App from './components/pages/App';
 import reportWebVitals from './reportWebVitals';
 import { render } from "react-dom";
 import {
@@ -8,12 +8,12 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Login from './components/Login';
-import SignUp from './components/Sign Up';
-import Create from './components/Create';
-import Discover from './components/Discover';
-import Update from './components/Update';
-import About from './components/About';
+import Login from './components/pages/Login';
+import SignUp from './components/pages/Sign Up';
+import Create from './components/pages/Create';
+import Discover from './components/pages/Discover';
+import Update from './components/pages/Update';
+import About from './components/pages/About';
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
