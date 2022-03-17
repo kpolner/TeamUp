@@ -1,4 +1,5 @@
 import React from 'react';
+//Home Page
 function App() {
   return (
         <section class="home" id="home">

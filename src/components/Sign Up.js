@@ -1,3 +1,4 @@
+//Sign up page. Prakash will enter his signup code here
 export default function SignUp() {
     return (
         <section class="home" id="home">

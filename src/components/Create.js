@@ -1,3 +1,4 @@
+//Create page
 export default function Create() {
     return (
         <section class="home" id="home">

@@ -1,3 +1,6 @@
+//Update page. Part of core web API functionality
+//Lists current events by the user
+//Patch and delete mappings without reloading page
 export default function Update() {
     return (
         <section class="home" id="home">

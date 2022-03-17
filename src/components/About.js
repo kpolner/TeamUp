@@ -1,3 +1,4 @@
+//About page
 export default function About() {
     return (
         <section class="general" id="general">
