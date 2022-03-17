@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
+  "name": "p2-frontend",
+=======
   "name": "react-teamup",
+>>>>>>> 321c5733998c9f5a5c6035e09b7efaaa7ddf2dca
   "version": "0.1.0",
   "private": true,
   "dependencies": {
