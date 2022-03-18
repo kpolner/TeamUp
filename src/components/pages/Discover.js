@@ -3,6 +3,8 @@
 //lists events
 //search bar for events
 //search by each variable?
+import numEvents from "../page elements/numEvents";
+import { UpdateEventButton } from "../page elements/UpdateEventButton";
 export default function Discover() {
     return (
         <section class="general" id="discover">
@@ -11,11 +13,14 @@ export default function Discover() {
             <div class="title">Discover</div>
             <div class="event-buttons">
             <button class="btn" id="create-button"><a href="/create">Create Event</a></button>
-            <button class="btn" id="update-button"><a href="/update">Update Event</a></button>
-            </div>    
-                <div class="text-3">
-                There are no events yet! This text should also be hidden when there is an event.    
+            <UpdateEventButton />
+            </div>
+            {    
+                numEvents == 0 &&
+                <div class="text-3">    
+                There are no events yet!    
                 </div>
+            }
                 <div class="text-3">
                 To do:
                 <ol>

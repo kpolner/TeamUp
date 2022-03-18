@@ -169,10 +169,10 @@ footer {
     margin-bottom: 10px;
 }
 .event-buttons {
-    float:inline-end;
+    float:inline-start;
 }
 .event-buttons #create-button {
-    margin-right: 20px;
+    margin-right: 2px;
 }
 /* general section styling */
 .general {
