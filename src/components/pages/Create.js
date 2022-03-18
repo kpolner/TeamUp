@@ -1,6 +1,7 @@
 //Create page
 //sport, skill level, age range, time/date, place
-//show event posted! with a link to the view page
+//show event posted! with a link to the view page\
+import { PostEventButton } from "../page elements/PostEventButton";
 export default function Create() {
     return (
         <section class="general" id="create">
@@ -36,7 +37,7 @@ export default function Create() {
               <div class="input_field">
                   <input type="text" placeholder="Location" class="input" required />
               </div>
-              <div class="btn"><a href="#">Post Event</a></div>
+              <PostEventButton />
           </div>
       </div>
       </section> 
