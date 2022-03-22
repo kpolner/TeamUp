@@ -15,7 +15,6 @@ export class LoginButton extends React.Component {
                 params: {
                     username1: this.props.name,
                     password: this.props.password,
-
                 }
             }
         )
