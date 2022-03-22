@@ -1,4 +1,5 @@
-//Sign up page. Prakash will enter his signup code here
+//Sign up page
+import { SignUpButton } from "../page elements/SignUpButton";
 export default function SignUp() {
     return (
         <section class="general" id="signup">
@@ -10,21 +11,21 @@ export default function SignUp() {
                 </ul>
             </div>
             <div class="input_field">
-                <input type="text" placeholder="Full Name" class="input" />
+                <input type="text" placeholder="Full Name" class="input" id="fullnamefield"/>
             </div>
             <div class="input_field">
-                <input type="text" placeholder="E-mail" class="input" />
+                <input type="text" placeholder="E-mail" class="input" id="emailfield" />
             </div>
             <div class="input_field">
-                <input type="text" placeholder="Username" class="input" />
+                <input type="text" placeholder="Username" class="input" id="usernamefield" />
             </div>
             <div class="input_field">
-                <input type="password" placeholder="Password" class="input" />
+                <input type="password" placeholder="Password" class="input" id="passwordfield"/>
             </div>
             <div class="input_field">
-                <input type="password" placeholder="Confirm Password" class="input" />
+                <input type="password" placeholder="Confirm Password" class="input" id="confirmpasswordfield"/>
             </div>
-            <div class="btn"><a href="#">Sign Up</a></div>
+            <SignUpButton />
             <li><a href="/login" class="next-page">Already a user?  Sign in</a></li>
         </div>
     </div>

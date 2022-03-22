@@ -1,11 +1,9 @@
 import * as React from 'react';
 import axios from 'axios';
-import numEvents from './numEvents';
-import GlobalLogin from './GlobalLogin';
-//Check axios 
-//Posts a new event in the event table
+//ADD SPECIFIC ID FUNCTIONALITY TO BUTTON THAT LEADS HERE
+//Updates events via patch mappings
 //change to vm host
-export class PostEventButton extends React.Component {
+export class ConfirmUpdateButton extends React.Component {
     constructor(props){
         super(props);
         this.state= {
@@ -15,11 +13,10 @@ export class PostEventButton extends React.Component {
             date: "",
             place: "",
             time: "",
-            level: "",
-            username: GlobalLogin.state 
+            level: ""
         };
     };
-    postEvent() {
+    updateEvent() {
         this.state =
         {
             name: document.getElementById("posteventnamefield").value,
@@ -27,17 +24,15 @@ export class PostEventButton extends React.Component {
             date: document.getElementById("postdatefield").value,
             place: document.getElementById("postlocationfield").value,
             time: document.getElementById("posttimefield").value,
-            level: document.getElementById("postskilllevelfield").value,
-            username: GlobalLogin.state
+            level: document.getElementById("postskilllevelfield").value
         };
+        axios.put("localhost:9000/EventController", this);
         console.log(this);
-        axios.post("localhost:9000/EventController", this);
-        alert("Event posted!");
-        numEvents = numEvents +1;
+        alert("Event updated!");
     }
     render() {
     return (
-      <div class="btn" onClick={() => this.postEvent()}>Post Event</div>
+<div class="btn" onClick={() => this.updateEvent()}>Update Event</div>
     )    
 }
 }

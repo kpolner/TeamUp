@@ -1,6 +1,6 @@
 import React from 'react';
 import './index.css';
-import App from './components/pages/App';
+import { Home } from './components/pages/Home';
 import reportWebVitals from './reportWebVitals';
 import { render } from "react-dom";
 import {
@@ -14,18 +14,25 @@ import Create from './components/pages/Create';
 import Discover from './components/pages/Discover';
 import Update from './components/pages/Update';
 import About from './components/pages/About';
+import UpdateEvent from './components/pages/UpdateEvent';
+import { Footer } from './components/page elements/Footer';
+import { Navbar } from './components/page elements/Navbar';
+//Routing for the entire project
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
+   <Navbar />
       <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/" element={<Home />} />
       <Route path="login" element={<Login />} />
       <Route path="signup" element={<SignUp />} />
       <Route path="create" element={<Create />} />
       <Route path="discover" element={<Discover />} />
       <Route path="update" element={<Update />} />
       <Route path="about" element={<About />} />
+      <Route path="UpdateEvent" element={<UpdateEvent />} />
     </Routes>
+    <Footer />
   </BrowserRouter>,
   rootElement
 );

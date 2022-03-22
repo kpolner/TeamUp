@@ -21,15 +21,6 @@ export default function Discover() {
                 There are no events yet!    
                 </div>
             }
-                <div class="text-3">
-                To do:
-                <ol>
-                    <li>List all events</li>
-                    <li>Get mapping functionality, dynamic search bar</li>
-                    <li>Get mapping for each type (skill/sport/etc). Try making it with 1 search bar? Maybe have different buttons to swap what we're searching by?</li>
-                    <li>Attend buttons on each posting, post mappings to make each user attend each event they want to</li>
-                </ol>
-                </div>
                 </div>
         </div>
     </section> 

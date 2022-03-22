@@ -1,9 +1,11 @@
-import * as React from 'react';
-import axios from 'axios';
-//Might be bugggy
-// install and import axios later for rest api calls
-//Grabs the list of events from the database
-export class EventList extends React.Component {
+//specifically for update page with update/delete mappings
+//returns what events are created by the user
+import axios from "axios";
+import React from "react";
+import { DeleteEventButton } from "./DeleteEventButton";
+import GlobalLogin from "./GlobalLogin";
+import { UpdateFormButton } from "./UpdateFormButton";
+export class UserEventList extends React.Component {
     
     constructor(props){
         super(props);
@@ -15,13 +17,18 @@ export class EventList extends React.Component {
             date: "",
             time: "",
             location: "",
-            username: "",
+            username: GlobalLogin,
             eventList:[]
         };
     };
 
-    generateEvent(){
-        axios.get('localhost:9000/EventController').then(
+    generateUserEvents(){
+        axios.get('localhost:9000/UserController/Username',
+        {
+            params: {
+                username: GlobalLogin
+            }      
+          }.then(
             response => { 
                 // your API might not use .results: make sure the structure conforms to whatever you make
                 // in backend
@@ -29,6 +36,7 @@ export class EventList extends React.Component {
                 console.log(myEvent);
                 this.setState({EventList: myEvent});
             }
+        )
         )
     }
     render(){
@@ -47,6 +55,10 @@ export class EventList extends React.Component {
                         <li>Time: {eventList.time}</li>
                         <li>Location: {eventList.location}</li>
                         </ul>
+                        <ul style="list-style-type:none" class="modifyeventbuttons">
+                        <li><UpdateFormButton /></li>
+                        <li><DeleteEventButton /></li>    
+                        </ul>
                         <img class="event-image" src = "https://www.google.com/search?q=sports&sxsrf=APq-WBvMTx9goHZzsbpdu7xwm2O01jTyIw:1647821729558&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjXqN-m9tX2AhUQh-AKHVPZCdkQ_AUoAnoECAIQBA&biw=1920&bih=937&dpr=1#imgrc=T-ncBKvTcH1JQM" />
                         </div> </li>)
                 }
@@ -56,3 +68,4 @@ export class EventList extends React.Component {
     }
 
 }
+//fix generate user css and formatting

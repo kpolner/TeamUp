@@ -1,2 +1,2 @@
-const numEvents = 0;
+var numEvents = 0;
 export default numEvents;
