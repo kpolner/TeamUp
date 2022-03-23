@@ -14,6 +14,16 @@ html {
     scroll-behavior: smooth;
 }
 
+/* event listing list stylings */
+.eventwrapper {
+    list-style-type: none;
+}
+.modifyeventbuttons {
+    list-style-type: none;
+}
+.eventinfo{
+    list-style-type: none;
+}
 /* custom scroll bar */
 
 ::-webkit-scrollbar {

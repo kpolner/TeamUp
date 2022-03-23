@@ -1,5 +1,5 @@
 //Sign up page
-import { SignUpButton } from "../page elements/SignUpButton";
+import SignUpButton from '../page elements/SignUpButton';
 export default function SignUp() {
     return (
         <section class="general" id="signup">

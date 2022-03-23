@@ -1,11 +1,12 @@
 import React from 'react';
-import GlobalLogin from '../page elements/GlobalLogin';
+import { loginContext } from '../../App';
+import { useContext } from 'react';
 //Home Page
 //Adding a welcome message with user name and photo
-export class Home extends React.Component {
-    render()
-    {
-        if (GlobalLogin == "")
+export default function Home() {
+    const [currentUser] = useContext(loginContext)
+        //change to context
+        if (currentUser === "Guest")
         {
             return (
             <section class="home" id="home">  
@@ -20,7 +21,8 @@ export class Home extends React.Component {
         </section>
             )
         }
-        else if (GlobalLogin !== "")
+        //change to context
+        else if (currentUser !== "Guest")
         {
             return (
             <section class="loggedhome" id="loggedhome">  
@@ -32,9 +34,8 @@ export class Home extends React.Component {
                 <a href="/about">Learn More</a>
             </div>
         </div>
-             <div class="profile">Hello<span>&nbsp;{GlobalLogin}</span>!</div>
+             <div class="profile">Hello<span>&nbsp;{currentUser}</span>!</div>
             </section>
             )
         }
     }
-}

@@ -1,25 +1,70 @@
-import logo from './logo.svg';
-import './App.css';
-//test
-function App() {
+import './index.css';
+import { useState } from 'react';
+import { createContext } from 'react';
+import { useEffect } from 'react';
+import axios from 'axios';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/page elements/Navbar';
+import Home from './components/pages/Home';
+import SignUp from './components/pages/Sign Up';
+import Create from './components/pages/Create';
+import Discover from './components/pages/Discover';
+import Update from './components/pages/Update';
+import About from './components/pages/About';
+import UpdateEvent from './components/pages/UpdateEvent';
+import { Footer } from './components/page elements/Footer';
+import Login from './components/pages/Login';
+
+
+export const loginContext = createContext();
+export const AllLoginsContext = createContext();
+export const eventNumberContext = createContext();
+export const eventContext = createContext();
+export default function App() {
+  const [AllLogins, setLogins] = useState()
+  const [currentUser, setCurrentUser] = useState();
+  const [currentEventNumber, setEventNumber] = useState();
+  const [eventList, setEventList] = useState();
+   function getAllLogins(){
+     axios.get('http://localhost:9000/user')
+     .then(response => {
+       let returnedUsers = response.data;
+       setLogins(returnedUsers);
+     })
+   }
+  function generateEvents(){
+    axios.get('localhost:9000/UserController/').then(
+        response => { 
+            let userEvents = response.data;
+            setEventList(userEvents);
+        }
+    )
+   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <eventContext.Provider value = {[useEffect(() => {generateEvents();}, []), setEventList]}>
+      <AllLoginsContext.Provider value = {[useEffect(() => {getAllLogins();}, []), setLogins]}>
+      <loginContext.Provider value ={["Guest", setCurrentUser]}>
+      <eventNumberContext.Provider value ={[0, setEventNumber]}>
+    <BrowserRouter>
+    <Navbar />
+       <Routes>
+       <Route path="/" element={<Home />} />
+       <Route path="login" element={<Login />} />
+       <Route path="signup" element={<SignUp />} />
+       <Route path="create" element={<Create />} />
+       <Route path="discover" element={<Discover />} />
+       <Route path="update" element={<Update />} />
+       <Route path="about" element={<About />} />
+       <Route path="UpdateEvent" element={<UpdateEvent />} />
+     </Routes>
+     <Footer />
+   </BrowserRouter>
+    </eventNumberContext.Provider>
+    </loginContext.Provider>
+    </AllLoginsContext.Provider>
+    </eventContext.Provider>
+    </>
   );
 }
 
-export default App;

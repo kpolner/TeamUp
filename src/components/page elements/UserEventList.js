@@ -2,70 +2,64 @@
 //returns what events are created by the user
 import axios from "axios";
 import React from "react";
-import { DeleteEventButton } from "./DeleteEventButton";
-import GlobalLogin from "./GlobalLogin";
 import { UpdateFormButton } from "./UpdateFormButton";
-export class UserEventList extends React.Component {
-    
-    constructor(props){
-        super(props);
-        this.state= {
-            type:"Event",
-            eventName: "",
-            sport: "",
-            skillLevel: "",
-            date: "",
-            time: "",
-            location: "",
-            username: GlobalLogin,
-            eventList:[]
-        };
-    };
+import { useContext } from "react";
+import { eventContext, loginContext, eventNumberContext } from "../../App";
+import { useEffect } from "react";
+export default function UserEventList() {
+    const [eventList, setEventList] = useContext(eventContext)
+    const [currentEventNumber, setEventNumber] = useContext(eventNumberContext)
+    const [currentUser] = useContext(loginContext);
 
-    generateUserEvents(){
-        axios.get('localhost:9000/UserController/Username',
-        {
-            params: {
-                username: GlobalLogin
-            }      
-          }.then(
+    function DeleteEventButton(){
+        if(currentEventNumber > 0){
+            let url = 'localhost:9000/EventController/Event'+ this.eventName; 
+            axios.delete('localhost:9000/EventController/', url).then(
+                    response => { 
+                        alert("Event Deleted!")
+                        setEventNumber(currentEventNumber-1);
+                    }
+                )
+            }
+        }
+    function generateUserEvents(){
+        axios.get('localhost:9000/UserController/Username/', currentUser).then(
             response => { 
+                let userEvents = response.data;
+                setEventList(userEvents);
                 // your API might not use .results: make sure the structure conforms to whatever you make
                 // in backend
-                let myEvent = response.data.results;
+               /* let myEvent = response.data.results;
                 console.log(myEvent);
-                this.setState({EventList: myEvent});
+                this.setState({EventList: myEvent}); */
             }
         )
-        )
     }
-    render(){
         return (
             <div>
-                {() => this.generateEvent()};
-                <ul style="list-style-type:none" class="eventwrapper">
+                { useEffect(() => {generateUserEvents(); }, [])}
+                {/*() => generateEvent() */};
+                <ul class="eventwrapper">
                 {
-                    this.state.eventList.map(eventList => <li><div class = "eventlisting">
-                        <ul style="list-style-type:none" class="eventinfo">
-                        <li>Event: {eventList.eventName}</li>
-                        <li>Host: {eventList.username}</li>
-                        <li>Sport: {eventList.sport}</li>
-                        <li>Skill level: {eventList.skillLevel}</li>
-                        <li>Date: {eventList.date}</li>
-                        <li>Time: {eventList.time}</li>
-                        <li>Location: {eventList.location}</li>
+                    eventList.map(() => <li><div class = "eventlisting">
+                        <ul class="eventinfo">
+                        <li>Event: {'name'}</li>
+                        <li>Host: {'username'}</li>
+                        <li>Sport: {'sport'}</li>
+                        <li>Skill level: {'level'}</li>
+                        <li>Date: {'date'}</li>
+                        <li>Time: {'time'}</li>
+                        <li>Location: {'place'}</li>
                         </ul>
-                        <ul style="list-style-type:none" class="modifyeventbuttons">
+                        <ul class="modifyeventbuttons">
                         <li><UpdateFormButton /></li>
-                        <li><DeleteEventButton /></li>    
+                        <li><button class="btn" onClick={DeleteEventButton()}>Delete Event</button></li>    
                         </ul>
-                        <img class="event-image" src = "https://www.google.com/search?q=sports&sxsrf=APq-WBvMTx9goHZzsbpdu7xwm2O01jTyIw:1647821729558&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjXqN-m9tX2AhUQh-AKHVPZCdkQ_AUoAnoECAIQBA&biw=1920&bih=937&dpr=1#imgrc=T-ncBKvTcH1JQM" />
+                        <img class="event-image" alt="A bunch of sports balls." src = "https://www.google.com/search?q=sports&sxsrf=APq-WBvMTx9goHZzsbpdu7xwm2O01jTyIw:1647821729558&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjXqN-m9tX2AhUQh-AKHVPZCdkQ_AUoAnoECAIQBA&biw=1920&bih=937&dpr=1#imgrc=T-ncBKvTcH1JQM" />
                         </div> </li>)
                 }
                 </ul>
             </div>
         )
     }
-
-}
 //fix generate user css and formatting
