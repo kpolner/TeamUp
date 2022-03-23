@@ -26,17 +26,17 @@ export default function App() {
   const [currentEventNumber, setEventNumber] = useState();
   const [eventList, setEventList] = useState();
    function getAllLogins(){
-     axios.get('http://localhost:9000/user')
+     axios.get('20.40.202.9:9000/user')
      .then(response => {
        let returnedUsers = response.data;
        setLogins(returnedUsers);
      })
    }
   function generateEvents(){
-    axios.get('localhost:9000/UserController/').then(
-        response => { 
-            let userEvents = response.data;
-            setEventList(userEvents);
+    axios.get('20.40.202.9:9000/UserController/')
+    .then(response => { 
+          let userEvents = response.data;
+          setEventList(userEvents);
         }
     )
    }

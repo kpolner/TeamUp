@@ -22,7 +22,7 @@ export default function Create() {
             'username': {currentUser}
         };
         console.log(newEvent);
-        axios.post("localhost:9000/EventController", newEvent);
+        axios.post("20.40.202.9:9000/EventController", newEvent);
         alert("Event posted!");
         setEventNumber(currentEventNumber+1);
     }

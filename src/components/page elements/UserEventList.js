@@ -13,8 +13,8 @@ export default function UserEventList() {
 
     function DeleteEventButton(){
         if(currentEventNumber > 0){
-            let url = 'localhost:9000/EventController/Event'+ this.eventName; 
-            axios.delete('localhost:9000/EventController/', url).then(
+            let url = '20.40.202.9:9000/EventController/Event'+ this.eventName; 
+            axios.delete(url).then(
                     response => { 
                         alert("Event Deleted!")
                         setEventNumber(currentEventNumber-1);
@@ -23,7 +23,7 @@ export default function UserEventList() {
             }
         }
     function generateUserEvents(){
-        axios.get('localhost:9000/UserController/Username/', currentUser).then(
+        axios.get('20.40.202.9:9000/UserController/Username/', currentUser).then(
             response => { 
                 let userEvents = response.data;
                 setEventList(userEvents);
@@ -37,7 +37,7 @@ export default function UserEventList() {
     }
         return (
             <div>
-                { useEffect(() => {generateUserEvents(); }, [])}
+                { useEffect(() => {generateUserEvents();}, [])}
                 {/*() => generateEvent() */};
                 <ul class="eventwrapper">
                 {
