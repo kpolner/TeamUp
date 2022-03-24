@@ -1,11 +1,11 @@
 import React from 'react';
-import { loginContext } from '../../App';
-import { useContext } from 'react';
+import loginContext from '../page elements/loginContext';
+import { useContext, useState } from 'react';
 //Home Page
 //Adding a welcome message with user name and photo
 export default function Home() {
-    const [currentUser] = useContext(loginContext)
-        if (currentUser === "Guest")
+    const [currentUser, {setCurrentUser}] = useContext(loginContext);
+        if (currentUser == "Guest" )
         {
             return (
             <section class="home" id="home">  
@@ -20,7 +20,7 @@ export default function Home() {
         </section>
             )
         }
-        else if (currentUser !== "Guest")
+        else if (currentUser !== "Guest" )
         {
             return (
             <section class="loggedhome" id="loggedhome">  

@@ -3,12 +3,12 @@
 //lists events
 //search bar for events
 //search by each variable?
-import { eventNumberContext } from "../../App";
+// import { eventNumberContext } from "../../App";
 import { useContext } from "react";
 import EventList from "../page elements/EventList";
 // import SearchBar from "../page elements/SearchBar"
 export default function Discover() {
-    const [currentEventNumber] = useContext(eventNumberContext);
+    // const [currentEventNumber] = useContext(eventNumberContext);
     return (
         <section class="general" id="discover">
         <div class="max-width">

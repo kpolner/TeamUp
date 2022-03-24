@@ -1,13 +1,13 @@
 //Create page
 //sport, skill level, age range, time/date, place
 //show event posted! with a link to the view page
-import { loginContext } from "../../App";
+import loginContext from "../page elements/loginContext";
 import { useContext } from "react";
-import { eventNumberContext } from "../../App";
+// import { eventNumberContext } from "../../App";
 import axios from "axios";
 export default function Create() {
-    const [currentUser] = useContext(loginContext)
-    const [currentEventNumber, setEventNumber] = useContext(eventNumberContext)
+    const currentUser = useContext(loginContext)
+    // const [currentEventNumber, setEventNumber] = useContext(eventNumberContext)
 
     function postEventButton()
     {
@@ -24,7 +24,7 @@ export default function Create() {
         console.log(newEvent);
         axios.post("http://localhost:9000/event", newEvent);
         alert("Event posted!");
-        setEventNumber(currentEventNumber+1);
+        // setEventNumber(currentEventNumber+1);
     }
     return (
         <section class="general" id="create">

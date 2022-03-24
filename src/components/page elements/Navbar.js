@@ -1,13 +1,16 @@
 import React from "react";
-import { loginContext } from "../../App";
-import { useContext } from "react";
+import loginContext from "./loginContext";
+import { useContext, useState } from "react";
 export default function Navbar() {
-const [currentUser, setCurrentUser] = useContext(loginContext);    
+const [currentUser, {setCurrentUser}] = useContext(loginContext);
+
+
 function SignOut() {
     setCurrentUser("Guest");
 }    
-if (currentUser === "Guest")
+if (currentUser == "Guest")
         {
+            console.log("Guest")
     return (
 <nav class="navbar">
 <div class="max-width">
@@ -24,15 +27,16 @@ if (currentUser === "Guest")
 </nav>
 )
     }
-    else
+    else if (currentUser !== "Guest" )
         {
+            console.log(currentUser + "not guest");
             return (
                 <nav class="navbar">
                 <div class="max-width">
                     <div class="logo"><a href="/">Team<span>Up</span></a></div>
                     <ul class="menu">
                         <li class="menu-btn">{currentUser}</li>
-                        <li onClick={SignOut()}><a href="/" class="menu-btn">Sign Out</a></li>
+                        <li onClick={() => SignOut()}><a href="/" class="menu-btn">Sign Out</a></li>
                         <li><a href ="/discover" class="menu-btn">Discover</a></li>
                     </ul>
                     <div class="menu-btn">

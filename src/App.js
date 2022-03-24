@@ -14,17 +14,22 @@ import About from './components/pages/About';
 import UpdateEvent from './components/pages/UpdateEvent';
 import { Footer } from './components/page elements/Footer';
 import Login from './components/pages/Login';
+import loginContext from './components/page elements/loginContext';
 
-
-export const loginContext = createContext();
 export const AllLoginsContext = createContext();
 export const eventNumberContext = createContext();
 export const eventContext = createContext();
 export default function App() {
   const [AllLogins, setLogins] = useState()
-  const [currentUser, setCurrentUser] = useState();
+  const [currentUser, setCurrentUser] = useState("Guest");
   const [currentEventNumber, setEventNumber] = useState();
   const [eventList, setEventList] = useState();
+  useEffect(() => {
+    getAllLogins()
+    }, [])
+    useEffect(() => {
+      generateEvents()
+    }, [])
    function getAllLogins(){
      axios.get('http://localhost:9000/user1/')
      .then(response => {
@@ -42,10 +47,10 @@ export default function App() {
    }
   return (
     <>
-      <eventContext.Provider value = {[useEffect(() => {generateEvents();}, []), setEventList]}>
-      <AllLoginsContext.Provider value = {[useEffect(() => {getAllLogins();}, []), setLogins]}>
-      <loginContext.Provider value ={["Guest", setCurrentUser]}>
-      <eventNumberContext.Provider value ={[0, setEventNumber]}>
+      <eventContext.Provider value = {eventList}>
+      <AllLoginsContext.Provider value = {AllLogins}>
+      <loginContext.Provider value ={[currentUser, {setCurrentUser}]}>
+      {/* <eventNumberContext.Provider value ={[0, setEventNumber]}> */}
     <BrowserRouter>
     <Navbar />
        <Routes>
@@ -60,7 +65,7 @@ export default function App() {
      </Routes>
      <Footer />
    </BrowserRouter>
-    </eventNumberContext.Provider>
+    {/* </eventNumberContext.Provider> */}
     </loginContext.Provider>
     </AllLoginsContext.Provider>
     </eventContext.Provider>
