@@ -19,10 +19,10 @@ export default function Create() {
             'place': document.getElementById("postlocationfield").value,
             'time': document.getElementById("posttimefield").value,
             'level': document.getElementById("postskilllevelfield").value,
-            'username': {currentUser}
+            'username': "guest"
         };
         console.log(newEvent);
-        axios.post("20.40.202.9:9000/event", newEvent);
+        axios.post("http://localhost:9000/event", newEvent);
         alert("Event posted!");
         setEventNumber(currentEventNumber+1);
     }

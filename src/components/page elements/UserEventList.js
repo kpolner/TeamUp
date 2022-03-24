@@ -12,7 +12,7 @@ export default function UserEventList() {
 
     function DeleteEventButton(){
         if(currentEventNumber > 0){
-            let url = '20.40.202.9:9000/event/'+ this.eventName; 
+            let url = 'http://localhost:9000/event/'+ this.eventName; 
             axios.delete(url).then(
                     response => { 
                         alert("Event Deleted!")
@@ -22,7 +22,7 @@ export default function UserEventList() {
             }
         }
     function generateUserEvents(){
-        let url = '20.40.202.9:9000/user1/username1/' + currentUser;
+        let url = 'http://localhost:9000/user1/username1/' + currentUser;
         axios.get(url).then(
             response => { 
                 let userEvents = response.data;

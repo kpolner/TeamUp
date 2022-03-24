@@ -13,7 +13,7 @@ export default function ConfirmUpdateButton() {
             'time': document.getElementById("posttimefield").value,
             'level': document.getElementById("postskilllevelfield").value
         };
-        axios.put("20.40.202.9:9000/event" /*ADD URL TO SPECIFIC EVENT */, updatedEvent);
+        axios.put("http://localhost:9000/event" /*ADD URL TO SPECIFIC EVENT */, updatedEvent);
         alert("Event updated!");
     }
     return (

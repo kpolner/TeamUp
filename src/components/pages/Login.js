@@ -4,11 +4,16 @@ import { useContext } from "react";
 import { loginContext } from "../../App";
 import { AllLoginsContext } from "../../App";
 import { useRef } from "react";
+import { useEffect } from "react";
 export default function Login() {
     const usernameInput = useRef();
     const passwordInput = useRef();
     const [currentUser, setCurrentUser] = useContext(loginContext);
-    const [AllLogins] = useContext(AllLoginsContext);
+    const [AllLogins, setAllLogins] = useContext(AllLoginsContext);
+    
+    useEffect(() => {
+    setAllLogins(AllLogins);
+    }, {AllLogins})
     function LoginButton(e)
     {
         e.preventDefault();

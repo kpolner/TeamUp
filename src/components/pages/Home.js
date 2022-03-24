@@ -5,7 +5,6 @@ import { useContext } from 'react';
 //Adding a welcome message with user name and photo
 export default function Home() {
     const [currentUser] = useContext(loginContext)
-        //change to context
         if (currentUser === "Guest")
         {
             return (
@@ -21,7 +20,6 @@ export default function Home() {
         </section>
             )
         }
-        //change to context
         else if (currentUser !== "Guest")
         {
             return (

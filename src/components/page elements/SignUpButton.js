@@ -5,9 +5,9 @@ import { AllLoginsContext } from '../../App';
 //Adds a new user in the user table
 //change to vm
 export default function SignUpButton() {
-    const [setLogins] = useContext(AllLoginsContext);
+    const [AllLogins ,setLogins] = useContext(AllLoginsContext);
     function getAllLogins(){
-        axios.get('20.40.202.9:9000/user')
+        axios.get('http://localhost:9000/user1')
         .then(response => {
           let returnedUsers = response.data;
           setLogins(returnedUsers);
@@ -23,7 +23,7 @@ export default function SignUpButton() {
             'username1': document.getElementById("usernamefield").value,
             'password1': document.getElementById("passwordfield").value, 
         };
-        axios.post("20.40.202.9:9000/UserController", newUser);
+        axios.post("http://localhost:9000/user1", newUser);
         getAllLogins();
         alert("Welcome to TeamUp!");
         }

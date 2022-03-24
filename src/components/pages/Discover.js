@@ -5,7 +5,8 @@
 //search by each variable?
 import { eventNumberContext } from "../../App";
 import { useContext } from "react";
-import SearchBar from "../page elements/SearchBar"
+import EventList from "../page elements/EventList";
+// import SearchBar from "../page elements/SearchBar"
 export default function Discover() {
     const [currentEventNumber] = useContext(eventNumberContext);
     return (
@@ -18,16 +19,19 @@ export default function Discover() {
             <span>
                     <button class="btn" id="update-button"><a href="/update">Update Event</a></button>
           </span>
+          <div>
+              <EventList />
+          </div>
           <span>
-              {/* Where search bar will be  */}
+              {/* <SearchBar /> */}
           </span>
           </div>
-            {    
-                currentEventNumber === 0 &&
-                <div class="text-3">    
-                There are no events yet!    
-                </div>
-            }
+            {/* {     */}
+                {/* currentEventNumber === 0 && */}
+                {/* <div class="text-3">     */}
+                {/* There are no events yet!     */}
+                {/* </div> */}
+            {/* } */}
                 </div>
         </div>
     </section> 
