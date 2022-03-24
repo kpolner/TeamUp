@@ -9,7 +9,7 @@ export default class Update extends React.Component {
             <div class="max-width">
                 <div class="general-content">
                 <div class="title">Update</div>
-                <UserEventList />
+             <UserEventList />
             </div>
         </div>
     </section> 

@@ -22,7 +22,7 @@ export default function Create() {
             'username': {currentUser}
         };
         console.log(newEvent);
-        axios.post("20.40.202.9:9000/EventController", newEvent);
+        axios.post("20.40.202.9:9000/event", newEvent);
         alert("Event posted!");
         setEventNumber(currentEventNumber+1);
     }
@@ -58,7 +58,7 @@ export default function Create() {
               <div class="input_field">
                   <input type="text" placeholder="Location" class="input" id="postlocationfield" required />
               </div>
-              <div class="btn" onClick={postEventButton()}>Post Event</div>
+              <div class="btn" onClick={() => postEventButton()}>Post Event</div>
           </div>
       </div>
       </section> 

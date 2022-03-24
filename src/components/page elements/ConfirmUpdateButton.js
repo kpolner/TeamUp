@@ -1,38 +1,22 @@
 import * as React from 'react';
 import axios from 'axios';
 //ADD SPECIFIC ID FUNCTIONALITY TO BUTTON THAT LEADS HERE
-//Updates events via patch mappings
-//change to vm host
-export class ConfirmUpdateButton extends React.Component {
-    constructor(props){
-        super(props);
-        this.state= {
-            type:"Event",
-            name: "",
-            sport: "",
-            date: "",
-            place: "",
-            time: "",
-            level: ""
-        };
-    };
-    updateEvent() {
-        this.state =
+//Updates events via put mapping
+export default function ConfirmUpdateButton() {
+    function updateEvent() {
+        const updatedEvent =
         {
-            name: document.getElementById("posteventnamefield").value,
-            sport: document.getElementById("postsportfield").value,
-            date: document.getElementById("postdatefield").value,
-            place: document.getElementById("postlocationfield").value,
-            time: document.getElementById("posttimefield").value,
-            level: document.getElementById("postskilllevelfield").value
+            'name': document.getElementById("posteventnamefield").value,
+            'sport': document.getElementById("postsportfield").value,
+            'date': document.getElementById("postdatefield").value,
+            'place': document.getElementById("postlocationfield").value,
+            'time': document.getElementById("posttimefield").value,
+            'level': document.getElementById("postskilllevelfield").value
         };
-        axios.put("localhost:9000/EventController", this);
-        console.log(this);
+        axios.put("20.40.202.9:9000/event" /*ADD URL TO SPECIFIC EVENT */, updatedEvent);
         alert("Event updated!");
     }
-    render() {
     return (
-<div class="btn" onClick={() => this.updateEvent()}>Update Event</div>
+<div class="btn" onClick={() => updateEvent()}>Update Event</div>
     )    
-}
 }

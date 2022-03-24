@@ -6,7 +6,7 @@ import { useEffect } from "react";
 export default function EventList() {
     const [eventList, setEventList] = useContext(eventContext)
     function generateEvents(){
-        axios.get('20.40.202.9:9000/UserController').then(
+        axios.get('20.40.202.9:9000/user1').then(
             response => { 
                 let userEvents = response.data;
                 setEventList(userEvents);

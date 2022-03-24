@@ -7,7 +7,7 @@ import { AllLoginsContext } from '../../App';
 export default function SignUpButton() {
     const [setLogins] = useContext(AllLoginsContext);
     function getAllLogins(){
-        axios.get('http://localhost:9000/user')
+        axios.get('20.40.202.9:9000/user')
         .then(response => {
           let returnedUsers = response.data;
           setLogins(returnedUsers);
@@ -23,7 +23,7 @@ export default function SignUpButton() {
             'username1': document.getElementById("usernamefield").value,
             'password1': document.getElementById("passwordfield").value, 
         };
-        axios.post("localhost:9000/UserController", newUser);
+        axios.post("20.40.202.9:9000/UserController", newUser);
         getAllLogins();
         alert("Welcome to TeamUp!");
         }
@@ -32,6 +32,6 @@ export default function SignUpButton() {
         }
     }
     return (
-        <div class="btn" onClick={signUp()}>Sign Up</div>
+        <div class="btn" onClick={() => signUp()}>Sign Up</div>
     )    
 }

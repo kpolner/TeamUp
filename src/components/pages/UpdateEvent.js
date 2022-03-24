@@ -1,5 +1,4 @@
-import { ConfirmUpdateButton } from "../page elements/ConfirmUpdateButton";
-
+import ConfirmUpdateButton from "../page elements/ConfirmUpdateButton";
 //Form to update events, taking information for each patch mapping
 export default function UpdateEvent() {
     return (

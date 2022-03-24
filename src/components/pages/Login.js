@@ -9,8 +9,9 @@ export default function Login() {
     const passwordInput = useRef();
     const [currentUser, setCurrentUser] = useContext(loginContext);
     const [AllLogins] = useContext(AllLoginsContext);
-    function LoginButton()
+    function LoginButton(e)
     {
+        e.preventDefault();
         let inputtedUser = usernameInput.current.value;
         let inputtedPassword = passwordInput.current.value;
 
@@ -43,12 +44,12 @@ export default function Login() {
                         </ul>
                     </div>
                     <div className="input_field">
-                        <input  className="input" type="text" id="name" ref={usernameInput}/>
+                        <input  className="input" placeholder="username" type="text" id="name" ref={usernameInput}/>
                     </div>
                     <div className="input_field">
-                        <input className="input" type="Password" id="loginpassword" ref={passwordInput} />
+                        <input className="input" placeholder="password" type="Password" id="loginpassword" ref={passwordInput} />
                     </div>
-                    <div class="btn" onClick={LoginButton()}>Log In</div>
+                    <div class="btn" onClick={() => LoginButton()}>Log In</div>
                     <li><a href="/signup" className="next-page">Not a user? Sign Up</a></li>
                 </div>
             </div>

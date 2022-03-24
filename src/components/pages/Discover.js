@@ -3,7 +3,7 @@
 //lists events
 //search bar for events
 //search by each variable?
-import eventNumberContext from "../../App";
+import { eventNumberContext } from "../../App";
 import { useContext } from "react";
 import SearchBar from "../page elements/SearchBar"
 export default function Discover() {
@@ -19,9 +19,9 @@ export default function Discover() {
                     <button class="btn" id="update-button"><a href="/update">Update Event</a></button>
           </span>
           <span>
-              <SearchBar />
+              {/* Where search bar will be  */}
           </span>
-            </div>
+          </div>
             {    
                 currentEventNumber === 0 &&
                 <div class="text-3">    
