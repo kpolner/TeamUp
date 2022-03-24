@@ -1,39 +1,37 @@
 import * as React from 'react';
 import axios from 'axios';
-//Might be buggy
+import { useContext } from 'react';
+import { AllLoginsContext } from '../../App';
 //Adds a new user in the user table
 //change to vm
-export class SignUpButton extends React.Component {
-    constructor(props){
-        super(props);
-        this.state= {
-            type:"User",
-            username1: "",
-            fullname1: "",
-            email1: "",
-            password1: "",
-        };
-    };
-    signUp() {
+export default function SignUpButton() {
+    const [setLogins] = useContext(AllLoginsContext);
+    function getAllLogins(){
+        axios.get('20.40.202.9:9000/user')
+        .then(response => {
+          let returnedUsers = response.data;
+          setLogins(returnedUsers);
+        })
+      }
+    function signUp() {
         if(document.getElementById("passwordfield").value === document.getElementById("confirmpasswordfield").value)
         {
-            this.state =
+            const newUser =
         {
-            fullname1: document.getElementById("fullnamefield").value,
-            email1: document.getElementById("emailfield").value,
-            username1: document.getElementById("usernamefield").value,
-            password1: document.getElementById("passwordfield").value, 
+            'fullname1': document.getElementById("fullnamefield").value,
+            'email1': document.getElementById("emailfield").value,
+            'username1': document.getElementById("usernamefield").value,
+            'password1': document.getElementById("passwordfield").value, 
         };
-        axios.post("localhost:9000/UserController", this);
+        axios.post("20.40.202.9:9000/UserController", newUser);
+        getAllLogins();
         alert("Welcome to TeamUp!");
         }
         else{
             alert("Your passwords do not match.")
         }
     }
-    render() {
     return (
-        <div class="btn" onClick={() => this.signUp()}>Sign Up</div>
+        <div class="btn" onClick={() => signUp()}>Sign Up</div>
     )    
-}
 }

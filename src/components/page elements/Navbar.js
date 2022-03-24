@@ -1,11 +1,12 @@
 import React from "react";
-import GlobalLogin from "./GlobalLogin";
-export class Navbar extends React.Component {
-SignOut() {
-    GlobalLogin = "";
+import { loginContext } from "../../App";
+import { useContext } from "react";
+export default function Navbar() {
+const [currentUser, setCurrentUser] = useContext(loginContext);    
+function SignOut() {
+    setCurrentUser("Guest");
 }    
-render() {
-    if (GlobalLogin == "")
+if (currentUser === "Guest")
         {
     return (
 <nav class="navbar">
@@ -30,8 +31,8 @@ render() {
                 <div class="max-width">
                     <div class="logo"><a href="/">Team<span>Up</span></a></div>
                     <ul class="menu">
-                        <li class="menu-btn">{GlobalLogin}</li>
-                        <li onClick={() => this.SignOut()}><a href="/" class="menu-btn">Sign Out</a></li>
+                        <li class="menu-btn">{currentUser}</li>
+                        <li onClick={SignOut()}><a href="/" class="menu-btn">Sign Out</a></li>
                         <li><a href ="/discover" class="menu-btn">Discover</a></li>
                     </ul>
                     <div class="menu-btn">
@@ -41,5 +42,4 @@ render() {
                 </nav>
             )
         } 
-}
 }

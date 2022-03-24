@@ -14,6 +14,17 @@ html {
     scroll-behavior: smooth;
 }
 
+/* event listing list stylings */
+.eventwrapper {
+    list-style-type: none;
+}
+.modifyeventbuttons {
+    list-style-type: none;
+    float:inline-end;
+}
+.eventinfo{
+    list-style-type: none;
+}
 /* custom scroll bar */
 
 ::-webkit-scrollbar {
@@ -180,9 +191,13 @@ footer {
 .general {
     display: flex;
     height: 100vh;
+    width: 100vh;
     color: #fff;
     min-height: 100px;
     font-family: 'Ubuntu', sans-serif;
+}
+.general-content {
+    width: 100vh;
 }
 
  .max-width {
@@ -409,31 +424,41 @@ footer span a:hover {
 
 /* individual event css */
 .eventwrapper {
-    position: absolute;
-    top: 40%;
-   
+    position: flex;
+    top: 50px;
 }
  .eventlisting {
-    width: 100%;
-    max-width: 450px;
-    height: 300px;
+    position: relative;
+    margin-left: 50%;
+    width: 80vh;
+    height: 25vh;
     background: #dde1e7;
     box-shadow: -3px -3px 7px rgba(68, 75, 87, 0.356),
                 2px 2px 5px rgba(68, 75, 87, 0.356);
-    left:50%;
-    margin-bottom: 5px;
-    transform: translate(-50%,-50%);    
+    margin-top: 20px;    
 }
 .eventinfo {
-    font-size: 20 px;
+    font-size: 20px;
+    font-weight: 600px;
     color: #000;
     font-family: 'Ubuntu', sans-serif;
     float: left;
+    margin-right: 15%;
+    margin-left: 20px;
+    margin-top: 20px;
 }
-.eventListing .event-image {
+.event-image {
     float:right;
-    max-height: 140 px;
-    max-width: 79px;
+    max-height: 280 px;
+    max-width: 158px;
+    margin-right: 40px;
+    position: relative;
+    top: -120px;
+}
+#delete-event-button {
+    color: white;
+    font-weight: 500px;
+    font-size: 16px;
 }
 
 
