@@ -34,9 +34,9 @@ export default class EventList extends React.Component {
     }
     render() {
         return (
+            <>                  
+            <span><button class="btn" id="find-button" onClick={() => this.generateEvents()}>Find Events</button></span>
             <div>
-            {/* { useEffect(() => {generateEvents();}, [])} */}
-            {() => this.generateEvents()}
             <ul class="eventwrapper">
             {
                 this.state.eventList.map(eventList =>  
@@ -55,6 +55,7 @@ export default class EventList extends React.Component {
             }
             </ul>
         </div>
+        </>
     )
         }
     }

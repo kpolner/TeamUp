@@ -22,7 +22,7 @@ export const eventContext = createContext();
 export default function App() {
   const [AllLogins, setLogins] = useState()
   const [currentUser, setCurrentUser] = useState("Guest");
-  const [currentEventNumber, setEventNumber] = useState();
+  // const [currentEventNumber, setEventNumber] = useState();
   const [eventList, setEventList] = useState();
   useEffect(() => {
     getAllLogins()
@@ -49,7 +49,7 @@ export default function App() {
     <>
       <eventContext.Provider value = {eventList}>
       <AllLoginsContext.Provider value = {AllLogins}>
-      <loginContext.Provider value ={[currentUser, {setCurrentUser}]}>
+      <loginContext.Provider value ={{user: currentUser, setUser: setCurrentUser}}>
       {/* <eventNumberContext.Provider value ={[0, setEventNumber]}> */}
     <BrowserRouter>
     <Navbar />

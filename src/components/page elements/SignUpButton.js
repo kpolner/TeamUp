@@ -1,18 +1,8 @@
 import * as React from 'react';
 import axios from 'axios';
-import { useContext } from 'react';
-import { AllLoginsContext } from '../../App';
 //Adds a new user in the user table
 //change to vm
 export default function SignUpButton() {
-    const [AllLogins ,setLogins] = useContext(AllLoginsContext);
-    function getAllLogins(){
-        axios.get('http://localhost:9000/user1')
-        .then(response => {
-          let returnedUsers = response.data;
-          setLogins(returnedUsers);
-        })
-      }
     function signUp() {
         if(document.getElementById("passwordfield").value === document.getElementById("confirmpasswordfield").value)
         {
@@ -24,7 +14,6 @@ export default function SignUpButton() {
             'password1': document.getElementById("passwordfield").value, 
         };
         axios.post("http://localhost:9000/user1", newUser);
-        getAllLogins();
         alert("Welcome to TeamUp!");
         }
         else{

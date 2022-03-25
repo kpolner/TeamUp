@@ -4,8 +4,8 @@ import { useContext, useState } from 'react';
 //Home Page
 //Adding a welcome message with user name and photo
 export default function Home() {
-    const [currentUser, {setCurrentUser}] = useContext(loginContext);
-        if (currentUser == "Guest" )
+    const {user, setUser} = useContext(loginContext);
+    if (user == "Guest" )
         {
             return (
             <section class="home" id="home">  
@@ -20,7 +20,7 @@ export default function Home() {
         </section>
             )
         }
-        else if (currentUser !== "Guest" )
+        else if (user !== "Guest" )
         {
             return (
             <section class="loggedhome" id="loggedhome">  
@@ -32,7 +32,7 @@ export default function Home() {
                 <a href="/about">Learn More</a>
             </div>
         </div>
-             <div class="profile">Hello<span>&nbsp;{currentUser}</span>!</div>
+             <div class="profile">Hello<span>&nbsp;{user}</span>!</div>
             </section>
             )
         }

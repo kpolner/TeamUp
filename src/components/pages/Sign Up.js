@@ -25,7 +25,7 @@ export default function SignUp() {
             <div class="input_field">
                 <input type="password" placeholder="Confirm Password" class="input" id="confirmpasswordfield"/>
             </div>
-            {/* <SignUpButton /> */}
+            <SignUpButton />
             <li><a href="/login" class="next-page">Already a user?  Sign in</a></li>
         </div>
     </div>

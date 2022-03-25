@@ -6,7 +6,7 @@ import { useContext } from "react";
 // import { eventNumberContext } from "../../App";
 import axios from "axios";
 export default function Create() {
-    const currentUser = useContext(loginContext)
+    const {user, setUser} = useContext(loginContext);
     // const [currentEventNumber, setEventNumber] = useContext(eventNumberContext)
 
     function postEventButton()
@@ -19,7 +19,7 @@ export default function Create() {
             'place': document.getElementById("postlocationfield").value,
             'time': document.getElementById("posttimefield").value,
             'level': document.getElementById("postskilllevelfield").value,
-            'username': "guest"
+            'username': user
         };
         console.log(newEvent);
         axios.post("http://localhost:9000/event", newEvent);

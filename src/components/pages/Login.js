@@ -9,7 +9,7 @@ import loginContext from "../page elements/loginContext";
 export default function Login() {
     const usernameInput = useRef();
     const passwordInput = useRef();
-    const [currentUser, {setCurrentUser}] = useContext(loginContext);
+    const {user, setUser} = useContext(loginContext);
     const ContextLogins = useContext(AllLoginsContext);
     const [AllLogins, setLogins] = useState();
     
@@ -34,7 +34,7 @@ export default function Login() {
         }
         else if (match[0].password1 == inputtedPassword)
         {
-            setCurrentUser(match[0].username1);
+            setUser(match[0].username1);
             alert("Welcome back to TeamUp!")
             //login user
             // provide functionality to events

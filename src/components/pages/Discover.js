@@ -19,8 +19,8 @@ export default function Discover() {
             <span>
                     <button class="btn" id="update-button"><a href="/update">Update Event</a></button>
           </span>
+          <EventList />
           <div>
-              <EventList />
           </div>
           <span>
               {/* <SearchBar /> */}
