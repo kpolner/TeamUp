@@ -2,8 +2,7 @@
 //Lists current events by the user
 import React from "react";
 import UserEventList from "../page elements/UserEventList";
-export default class Update extends React.Component {
-    render() {
+export default function Update() {
         return (
             <section class="general" id="discover">
             <div class="max-width">
@@ -15,4 +14,3 @@ export default class Update extends React.Component {
     </section> 
     );
   }
-}

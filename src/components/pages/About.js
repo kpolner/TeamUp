@@ -9,7 +9,7 @@ export default function About() {
                     <p class = "about-content">
                         TeamUp is a full-stack java application developed by founders Mario Portilla, Prakash Shankar, Kyle Polner, Josue Rodriguez, and Vivian Trevino.
                         Its mission is to help people find local sports games that they can join if they don't have a team to play with. You are able to create, update, delete,
-                        and attend events of any sport you can find! Please enjoy our application, and we hope that you make many friends in your TeamUp adventures. 
+                        and attend events of any sport you can find! Please enjoy our application, and we hope that you make many friends in your TeamUp adventures!
                     </p>
                 </div>
                 <div class="subtitle">Technologies</div>

@@ -1,4 +1,5 @@
 import React from "react";
+//renders a footer for every page
 export class Footer extends React.Component {
 render() {
     return (
