@@ -16,25 +16,22 @@ export default class EventList extends React.Component {
             'time': "",
             'place': "",
             eventList: []
+            //constructor for each event
         }
     }
     generateEvents(){
+        //puts all of the events into an array
         axios.get('http://localhost:9000/event').then(
             response => { 
                 let userEvents = response.data;
-                // setEventList(userEvents);
                 this.setState({eventList: userEvents});
-                // your API might not use .results: make sure the structure conforms to whatever you make
-                // in backend
-               /* let myEvent = response.data.results;
-                console.log(myEvent);
-                this.setState({EventList: myEvent}); */
             }
         )
     }
     render() {
         return (
-            <>                  
+            <>  
+            {/* Maps the events currently in the database */}                
             <span><button class="btn" id="find-button" onClick={() => this.generateEvents()}>Find Events</button></span>
             <div>
             <ul class="eventwrapper">

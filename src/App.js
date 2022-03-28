@@ -24,9 +24,11 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState("Guest");
   // const [currentEventNumber, setEventNumber] = useState();
   const [eventList, setEventList] = useState();
+  //grabs all logins from the database
   useEffect(() => {
     getAllLogins()
     }, [])
+    //grabs all events from the database
     useEffect(() => {
       generateEvents()
     }, [])
@@ -47,6 +49,7 @@ export default function App() {
    }
   return (
     <>
+    {/* provides context and routing for all the pages in the application */}
       <eventContext.Provider value = {eventList}>
       <AllLoginsContext.Provider value = {AllLogins}>
       <loginContext.Provider value ={{user: currentUser, setUser: setCurrentUser}}>

@@ -13,23 +13,27 @@ export default function Login() {
     const ContextLogins = useContext(AllLoginsContext);
     const [AllLogins, setLogins] = useState();
     
-
+//sets all logins
     useEffect(() => {
     setLogins(ContextLogins);
     }, [ContextLogins])
 
+    //function to log in when you press the button
     function LoginButton(e)
     {
+        //full login goes through or not at all
         e.preventDefault();
         let inputtedUser = usernameInput.current.value;
         let inputtedPassword = passwordInput.current.value;
         let match = AllLogins.filter(user => user.username1 == inputtedUser);
         if (match.length === 0)
         {
-            alert("Incorrect username");
+            //checks if there's a user with the inputted username
+            alert("Incorrect username or password");
         }
         else if (match[0].password1 !== inputtedPassword)
         {
+            //checks if your password matches with the user's password in the database
             alert("Incorrect username or password");
         }
         else if (match[0].password1 == inputtedPassword)

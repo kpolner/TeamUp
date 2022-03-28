@@ -4,10 +4,11 @@ import { useContext, useState } from "react";
 export default function Navbar() {
 const {user, setUser} = useContext(loginContext);
 
-
+//sets the user as guest
 function SignOut() {
     setUser("Guest");
 }    
+//checks which navbar to show, signed in or signed out
 if (user == "Guest")
         {
     return (
@@ -28,6 +29,7 @@ if (user == "Guest")
     }
     else if (user !== "Guest" )
         {
+            //debugging purposes
             console.log(user + "not guest");
             return (
                 <nav class="navbar">

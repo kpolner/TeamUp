@@ -2,7 +2,7 @@ import React from 'react';
 import loginContext from '../page elements/loginContext';
 import { useContext, useState } from 'react';
 //Home Page
-//Adding a welcome message with user name and photo
+//Dynamically updates with a welcome message if signed in
 export default function Home() {
     const {user, setUser} = useContext(loginContext);
     if (user == "Guest" )

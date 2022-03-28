@@ -4,8 +4,10 @@ import axios from 'axios';
 //change to vm
 export default function SignUpButton() {
     function signUp() {
+        //if statement checks if passwords match
         if(document.getElementById("passwordfield").value === document.getElementById("confirmpasswordfield").value)
         {
+            //takes all the data from the sign up form and posts it to the database;
             const newUser =
         {
             'fullname1': document.getElementById("fullnamefield").value,

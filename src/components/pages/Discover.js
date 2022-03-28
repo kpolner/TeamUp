@@ -6,8 +6,10 @@
 // import { eventNumberContext } from "../../App";
 import { useContext } from "react";
 import EventList from "../page elements/EventList";
+import loginContext from "../page elements/loginContext";
 // import SearchBar from "../page elements/SearchBar"
 export default function Discover() {
+    const {user, setUser} = useContext(loginContext);
     // const [currentEventNumber] = useContext(eventNumberContext);
     return (
         <section class="general" id="discover">
@@ -16,22 +18,19 @@ export default function Discover() {
             <div class="title">Discover</div>
             <div class="event-buttons">
             <button class="btn" id="create-button"><a href="/create">Create Event</a></button>
+            {
+                user !== "Guest" &&
             <span>
                     <button class="btn" id="update-button"><a href="/update">Update Event</a></button>
           </span>
+            }
           <EventList />
           <div>
           </div>
           <span>
               {/* <SearchBar /> */}
           </span>
-          </div>
-            {/* {     */}
-                {/* currentEventNumber === 0 && */}
-                {/* <div class="text-3">     */}
-                {/* There are no events yet!     */}
-                {/* </div> */}
-            {/* } */}
+          </div>   
                 </div>
         </div>
     </section> 

@@ -11,6 +11,7 @@ export default function Create() {
 
     function postEventButton()
     {
+        //takes all the input from the create form fields and posts it to the database via axios
         const newEvent =
         {
             'name': document.getElementById("posteventnamefield").value,
