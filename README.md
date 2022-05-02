@@ -1,70 +1,85 @@
-# Getting Started with Create React App
+![TeamUp (1)](https://user-images.githubusercontent.com/75400065/159744121-2d1635b9-9cbe-41c7-8ed9-43c363f2845f.gif)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# TeamUp
 
-In the project directory, you can run:
+TeamUp is a full-stack java application developed to help people find sporting events locally.
+## Description
 
-### `npm start`
+How many times have you wanted to be outside and active but have no one or no where to do it? How about just wanting to play your favorite sport but again you dont have any friends your age that you can call for a pick up game? Here at TeamUp, we all had similar experiences and found data that suggests in todays technology driven world, people are becoming less and less active. So, we decided to do something about it and together we developed TeamUp, a revolutionary application that will change how you sport forever. TeamUp allows people who are looking for pick up games to connect with eachother effortlessly by skill level, location, and sport. You are able to create new events, attend events of any sport you can find, as well as cancel or change venues at will. We want to be the reason people look forward to going outside again!
+Please enjoy our application, and we hope that you have a ton of fun, stay healthy and make many friends in your TeamUp adventures.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+- Sign up page
+- Log in Page
+- Event Creator
+- Ability to find pick up games quickly
+- Find local sporting activites or events wherever you are
+- Complete CRUD capabilities
+```
 
-### `npm test`
+## Built With
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Front end:
+Javascript, React, NodeJS, HTML, CSS
 
-### `npm run build`
+- Back end:
+Servlets, Hibernate, Spring Framework, Spring Boot, Spring MVC, Spring ORM, Spring Data, Spring AOP  
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Testing:
+Mockito, JUnit
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+```bash
+git clone https://github.com/SequelTeamSix/team-mario-p2-frontend-
+npm --version
+pip install 
+npm install npm@latest -g
+npm install 
+npm install axios
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- The Home page can be seen in this screenshot
+![image](https://user-images.githubusercontent.com/75400065/160510520-7ed3d41f-f6f1-4208-aae3-e4ef9a248ea7.png)
+- To access the web application you need to create an account and log in
+![image](https://user-images.githubusercontent.com/75400065/160512799-be6210ea-f269-4b8a-8b1d-5bb4f3950236.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## Contributors
+- Mario Andres Portilla
+- Prakash Shankar
+- Kyle Polner
+- Josue Rodriguez
+- Vivian Trevino
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributing
+- Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Frontend 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![GitHub contributors](https://img.shields.io/github/commit-activity/y/SequelTeamSix/team-mario-p2-frontend-)
 
-### Making a Progressive Web App
+![GitHub contributors](https://img.shields.io/github/last-commit/SequelTeamSix/team-mario-p2-frontend-)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![GitHub contributors](https://img.shields.io/github/contributors/SequelTeamSix/team-mario-p2-frontend-)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Backend 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![GitHub contributors](https://img.shields.io/github/commit-activity/y/SequelTeamSix/team-mario-p2-backend)
 
-### `npm run build` fails to minify
+![GitHub last commit](https://img.shields.io/github/last-commit/SequelTeamSix/team-mario-p2-backend)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![GitHub contributors](https://img.shields.io/github/contributors/SequelTeamSix/team-mario-p2-backend)
