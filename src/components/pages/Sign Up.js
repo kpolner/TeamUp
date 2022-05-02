@@ -7,6 +7,7 @@ export default function SignUp() {
     const [emailErr, setEmailErr] = useState();
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState();
+    const [matchError, setMatchError] = useState();
     const validEmail = new RegExp(
         '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
         )
@@ -21,12 +22,12 @@ export default function SignUp() {
     //     }
     // } ,[emailErr]);
     useEffect(() => {
-        if(emailErr === false && passwordError === false)
+        if(emailErr === false && passwordError === false && matchError === false)
         {
             console.log(emailErr + "email " + passwordError + "pw")
             signUp();
         }
-    }, [passwordError, emailErr]);
+    }, [passwordError, emailErr, matchError]);
     function validate() {
         if(!validEmail.test(userEmail))
         {
@@ -42,17 +43,17 @@ export default function SignUp() {
         {
             setPasswordError(false);
         }
-        // if(emailErr == false && passwordError == false)
-        // {
-        //     signUp();
-        // }
+        if(password !== document.getElementById("confirmpasswordfield").value)
+        {
+            setMatchError(true);
+        }
+        else
+        {
+            setMatchError(false);
+        }
     }
     async function signUp() {
-        //checks if password and emails are valid
-        //if statement checks if passwords match
-        if(password === document.getElementById("confirmpasswordfield").value && emailErr === false && passwordError === false)
-        {
-            //takes all the data from the sign up form and posts it to the database;
+        //takes all the data from the sign up form and posts it to the database;
             const newUser =
         {
             'fullname1': document.getElementById("fullnamefield").value,
@@ -67,22 +68,6 @@ export default function SignUp() {
         }catch(e)
         {
             console.log(e);
-        }
-        // const response = await axios.post("http://localhost:9000/user1", newUser);
-        // await response.json;
-        // if (response.ok)
-        // {
-        //     alert("Welcome to TeamUp");
-        // }
-        // else {
-        //     alert("An error occured regarding posting a new user");    
-        // }
-        }
-        else{
-            if(password !== document.getElementById("confirmpasswordfield").value)
-            {
-            alert("Your passwords do not match.")
-            }
         }
     }
     return (
@@ -110,8 +95,9 @@ export default function SignUp() {
                 <input type="password" placeholder="Confirm Password" class="input" id="confirmpasswordfield"/>
             </div>
             <div class="btn" onClick={() => validate()}>Sign Up</div>
-            {emailErr && <p>Invalid email.</p>}
-            {passwordError && <p>Invalid password. Please use 8 characters including 1 capital and 1 number</p>}
+            {emailErr && <p class="regexError">Invalid email.</p>}
+            {passwordError && <p class="regexError">Invalid password. Please use 8 characters including 1 capital and 1 number</p>}
+            {matchError && <p class="regexError">Your passwords do not match.</p>}
             <li><a href="/login" class="next-page">Already a user?  Sign in</a></li>
         </div>
     </div>
