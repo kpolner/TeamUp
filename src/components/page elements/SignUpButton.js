@@ -1,21 +1,13 @@
 import * as React from 'react';
 import axios from 'axios';
-import { useContext } from 'react';
-import { AllLoginsContext } from '../../App';
 //Adds a new user in the user table
 //change to vm
 export default function SignUpButton() {
-    const [setLogins] = useContext(AllLoginsContext);
-    function getAllLogins(){
-        axios.get('20.40.202.9:9000/user')
-        .then(response => {
-          let returnedUsers = response.data;
-          setLogins(returnedUsers);
-        })
-      }
     function signUp() {
+        //if statement checks if passwords match
         if(document.getElementById("passwordfield").value === document.getElementById("confirmpasswordfield").value)
         {
+            //takes all the data from the sign up form and posts it to the database;
             const newUser =
         {
             'fullname1': document.getElementById("fullnamefield").value,
@@ -23,8 +15,7 @@ export default function SignUpButton() {
             'username1': document.getElementById("usernamefield").value,
             'password1': document.getElementById("passwordfield").value, 
         };
-        axios.post("20.40.202.9:9000/UserController", newUser);
-        getAllLogins();
+        axios.post("http://localhost:9000/user1", newUser);
         alert("Welcome to TeamUp!");
         }
         else{

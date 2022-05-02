@@ -1,4 +1,5 @@
 //Sign up page
+//form with full name, email, user, pass, confirm pass, links to login page if already signed up
 import SignUpButton from '../page elements/SignUpButton';
 export default function SignUp() {
     return (
